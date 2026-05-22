@@ -11,7 +11,8 @@ namespace Ejemplos
         static void Main(string[] args)
         {
             //Ejemplo01();
-            Ejemplo02();
+            //Ejemplo02();
+            Ejemplo03();
             Console.ReadKey();
         }
         static void Ejemplo01()
@@ -50,7 +51,7 @@ namespace Ejemplos
                     {
                         mayor = numero;
                     }
-                        contador++;
+                    contador++;
                 }
             } while (numero != 0);
 
@@ -64,6 +65,49 @@ namespace Ejemplos
                     Console.WriteLine($"No se ingresaron números validos");
                 }
             }
+        }
+
+        static void Ejemplo03()
+        {
+            int numero;
+            int sumaMayores = 0;
+            int sumaMenores = 0;
+            int contMayores = 0;
+            int contMenores = 0;
+
+            do
+            {
+                Console.Write("Ingrese un número (0 para terminar): ");
+                numero = int.Parse(Console.ReadLine());
+
+                if (numero > 500)
+                {
+                    sumaMayores = sumaMayores + numero;
+                    contMayores++;
+                }
+                else if (numero < 500 && numero != 0)
+                {
+                    sumaMenores = sumaMenores + numero;
+                    contMenores++;
+                }
+            } while (numero != 0);
+
+            double promMayores = 0;
+            double promMenores = 0;
+
+            if (contMayores > 0)
+            {
+                promMayores = (double)sumaMayores / contMayores;
+            }
+
+            if (contMenores > 0)
+            {
+                promMenores = (double)sumaMenores / contMenores;
+            }
+
+            Console.WriteLine("/n === RESULTADOS ===");
+            Console.WriteLine($"Promedio mayores a 500: {promMayores:F2}");
+            Console.WriteLine($"Promedio menores a 500: {promMenores:F2}");
         }
     }
 }
